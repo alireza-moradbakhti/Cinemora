@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Cinemora</string>
+
+    <!-- Error Messages -->
+    <string name="error_generic">An error occurred. Please try again.</string>
+    <string name="error_network">Network error occurred. Please try again.</string>
+    <string name="error_database_generic">A database error occurred. Please try again later.</string>
+    <string name="error_api_generic">An API error occurred : %1$d , %2$s .</string>
+    <string name="error_unknown">An unknown error occurred.</string>
+    <string name="error_invalid_input">Invalid input. Please check your entries and try again.</string>
+    <string name="error_timeout">Request timed out. Please check your connection and try again.</string>
+    <string name="error_no_data">No data available.</string>
+    <string name="error_no_results">No results found.</string>
+    <string name="error_server">Server error occurred. Please try again later.</string>
+
+</resources>
