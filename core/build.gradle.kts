@@ -49,4 +49,7 @@ dependencies {
 
     // Common utilities, UI tools
     implementation(libs.kotlinx.coroutines.core)
+
+    // Navigation
+    implementation(libs.androidx.navigation.compose)
 }

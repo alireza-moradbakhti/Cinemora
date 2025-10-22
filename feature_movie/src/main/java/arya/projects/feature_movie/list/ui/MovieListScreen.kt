@@ -10,14 +10,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.navigation.NavHostController
+import androidx.navigation.NavController
 import arya.projects.feature_movie.list.viewmodel.MovieListViewModel
 
 @Composable
 fun MovieListScreen(
     modifier: Modifier = Modifier,
     viewModel: MovieListViewModel = hiltViewModel(),
-    navController: NavHostController,
+    navController: NavController,
 ) {
 
     val state by viewModel.state.collectAsStateWithLifecycle()

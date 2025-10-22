@@ -2,6 +2,9 @@ package arya.projects.core.utils
 
 import android.content.Context
 import android.widget.Toast
+import androidx.navigation.NavController
+import androidx.navigation.NavOptionsBuilder
+import androidx.navigation.navOptions
 import java.util.Locale
 
 /**
@@ -28,5 +31,34 @@ fun String.capitalizeFirst(): String {
         if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString()
     }
 }
+
+/**
+ * Safely navigates to a route if it's not already the current destination.
+ * Prevents duplicate navigation events (e.g. rapid double-clicks).
+ * @param route The route to navigate to.
+ * @param builder An optional lambda to customize the navigation options.
+ */
+fun NavController.safeNavigate(
+    route: String,
+    builder: (NavOptionsBuilder.() -> Unit)? = null
+) {
+    val currentRoute = currentBackStackEntry?.destination?.route
+    if (currentRoute != route) {
+        try {
+            if (builder != null) {
+                navigate(route, navOptions(builder))
+            } else {
+                navigate(route)
+            }
+        } catch (e: IllegalArgumentException) {
+            // Destination might not exist in current graph
+            e.printStackTrace()
+        } catch (e: IllegalStateException) {
+            // Navigation already in progress or not ready
+            e.printStackTrace()
+        }
+    }
+}
+
 
 
