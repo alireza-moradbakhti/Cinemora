@@ -20,4 +20,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Cinemora"
-include(":app" , ":core" , ":data", ":domain" , ":feature_movie")
+include(":app" , ":core" , ":data", ":domain" , ":feature_movie",":core:ui")

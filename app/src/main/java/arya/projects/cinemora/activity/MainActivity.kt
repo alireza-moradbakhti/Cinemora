@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.rememberNavController
 import arya.projects.cinemora.navigation.RootNavGraph
-import arya.projects.cinemora.ui.theme.CinemoraTheme
+import arya.projects.core.ui.theme.CinemoraTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

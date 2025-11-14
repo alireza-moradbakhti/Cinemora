@@ -14,7 +14,7 @@ import arya.projects.domain.entity.Movie
  * @param page The current page number for pagination.
  */
 data class MovieListState(
-    val movies: List<Movie> = emptyList(),
+    val movies: List<Movie>? = emptyList(),
     val isLoading: Boolean = false,
     val isFavorite: Boolean = false,
     val errorMessage: String? = null,

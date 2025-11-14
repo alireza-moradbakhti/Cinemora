@@ -3,7 +3,13 @@ package arya.projects.data.di
 import arya.projects.core.utils.AppConstants
 import arya.projects.data.BuildConfig
 import arya.projects.data.interceptor.ApiKeyInterceptor
+import arya.projects.data.local.MovieDao
 import arya.projects.data.remote.MovieApiService
+import arya.projects.data.repository.MovieRepositoryImpl
+import arya.projects.domain.repository.MovieRepository
+import arya.projects.domain.usecase.GetPopularMoviesUseCase
+import arya.projects.domain.usecase.MovieUseCases
+import arya.projects.domain.usecase.ToggleFavoriteMovieUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -64,4 +70,22 @@ object NetworkModule {
     fun provideMovieApiService(retrofit: Retrofit): MovieApiService {
         return retrofit.create(MovieApiService::class.java)
     }
+
+    @Provides
+    @Singleton
+    fun provideMovieRepository(
+        movieApiService: MovieApiService,
+        movieDao: MovieDao
+    ): MovieRepositoryImpl {
+        return MovieRepositoryImpl(movieApiService, movieDao)
+    }
+
+    @Provides
+    @Singleton
+    fun provideMovieUseCases(movieRepository: MovieRepository): MovieUseCases =
+        MovieUseCases(
+            getPopularMoviesUseCase = GetPopularMoviesUseCase(movieRepository),
+            toggleFavoriteMovieUseCase = ToggleFavoriteMovieUseCase(movieRepository)
+        )
+
 }

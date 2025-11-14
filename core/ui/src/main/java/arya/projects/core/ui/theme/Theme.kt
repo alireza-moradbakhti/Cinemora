@@ -1,4 +1,4 @@
-package arya.projects.cinemora.ui.theme
+package arya.projects.core.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

@@ -80,7 +80,9 @@ dependencies {
 
 
     // Project Modules
+    implementation(project(":data"))
     implementation(project(":core"))
+    implementation(project(":core:ui"))
     implementation(project(":domain"))
     implementation(project(":feature_movie"))
 

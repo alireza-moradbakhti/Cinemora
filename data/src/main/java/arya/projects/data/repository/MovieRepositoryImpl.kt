@@ -18,13 +18,12 @@ import kotlinx.coroutines.flow.map
 import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
-import javax.inject.Singleton
 
 /**
  * Concrete implementation of the MovieRepository interface.
  * Coordinates data from local and remote sources.
  */
-@Singleton
+
 class MovieRepositoryImpl @Inject constructor(
     private val apiService: MovieApiService,
     private val movieDao: MovieDao
